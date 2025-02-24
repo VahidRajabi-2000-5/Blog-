@@ -18,8 +18,10 @@
                 <p class="mt-2">Date Time : {{post.datetime_created}}</p>
                 <p class="mt-2">Date Time : {{post.datetime_modified}}</p>
                 <div>
+                    {% if request.user == post.author %}
                     <a href="{% url 'post_update' post.id %}" class="btn btn-primary" role="button">Update</a>
                     <a href="{% url 'post_delete' post.id %}" class="btn btn-danger" role="button">Delete</a>
+                    {% endif %}
                 </div>
                 
                 
