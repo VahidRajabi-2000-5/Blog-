@@ -44,3 +44,13 @@ def post_update_view(request, pk):
         return redirect(post.get_absolute_url())
 
     return render(request, "blog/post_create.html", {"form": form})
+
+
+def post_delete_view(request, pk):
+    post = get_object_or_404(models.Post, pk=pk)
+
+    if request.method == "POST":
+        post.delete()
+        return redirect("posts_list")
+
+    return render(request, "blog/post_delete.html", {"post": post})

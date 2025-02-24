@@ -3,7 +3,7 @@
 
 
 {% block title %}
-    Create Post
+    Delete Post
 {% endblock title %}
     
 
@@ -12,14 +12,12 @@
     <div class="row">
         <div class="col-9">
             <div class="card shadow my-3 p-5">
-                <h3>Add new Post:</h3>
-                <form method="POST">
+                <h1>Delete Post:</h1>
+                <h3>Are you sure?</h3>
+                <p>Are you sure you want to delete {{post.title}} post?</p>
+                <form action="" method="POST">
                     {% csrf_token %}
-                    <!-- {{form}} -->
-                    <!-- {{form.as_p}} -->
-                    <!-- {{form.as_table}} -->
-                    {{form|crispy}}
-                    <button  type="submit" class="btn btn-primary">Submit</button>
+                    <button  type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </div>
         </div>
