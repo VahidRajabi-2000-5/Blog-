@@ -38,7 +38,25 @@
             
           </div>
         </div>
-        <div class="mx-2 text-white">Welcome</div>
+        <div class="mx-2 text-white">
+          
+          {% if user.is_authenticated %}
+          <div style="display: flex; align-items: center; gap: 5px;">
+            <p class="m-0">Welcome {{ user.username }} | 
+              <a class="text-light text-decoration-none" href="{% url 'profile_edit' %}">Profile Edit</a> | 
+              <a class="text-light text-decoration-none" href="{% url 'password_change' %}">Change Password</a> |
+            </p>
+            <form action="{% url 'logout' %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-link text-light p-0 text-decoration-none">Logout</button>
+            </form>
+          </div>
+          {% else %}
+            <a class="text-light text-decoration-none" href="{% url 'login' %}">Login</a> |  
+            <a class="text-light text-decoration-none" href="{% url 'signup' %}">Sign Up</a> 
+          {% endif %}
+            
+        </div>
       </div>
     </nav>
 
