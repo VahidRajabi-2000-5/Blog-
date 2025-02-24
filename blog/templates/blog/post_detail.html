@@ -15,6 +15,8 @@
                 <h1>{{post.title}}</h1>
                 <p class="small text-muted mt-2">By: {{post.author}}</p>
                 <p class="mt-2">{{post.text}}</p>
+                <p class="mt-2">Date Time : {{post.datetime_created}}</p>
+                <p class="mt-2">Date Time : {{post.datetime_modified}}</p>
                 <div>
                     <a href="{% url 'post_update' post.id %}" class="btn btn-primary" role="button">Update</a>
                     <a href="{% url 'post_delete' post.id %}" class="btn btn-danger" role="button">Delete</a>
