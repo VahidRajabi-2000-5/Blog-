@@ -16,7 +16,8 @@ class Post(models.Model):
     status = models.CharField(choices=STATUS_CHOICES, max_length=3)
     
     def get_absolute_url(self):
-        return reverse("post_detail", kwargs={"pk": self.pk})
+        # return reverse("post_detail", kwargs={"pk": self.pk})
+        return reverse("post_detail", args=[self.id])
     
     
     def __str__(self):
