@@ -22,7 +22,7 @@ from blog import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", views.home_page, name="home_page"),
+    path("", views.HomePage.as_view(), name="home_page"),
     path('accounts/',include('django.contrib.auth.urls')),
     path('accounts/',include('accounts.urls')),
     path("blog/", include("blog.urls")),

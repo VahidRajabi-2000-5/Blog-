@@ -7,9 +7,9 @@ from . import forms
 from . import models
 
 
-def home_page(request):
-    return render(request, "home.html")
 
+class HomePage(generic.TemplateView):
+    template_name = "home.html"
 
 
 class PostListView(generic.ListView):
